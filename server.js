@@ -11,8 +11,8 @@ const io=require("socket.io")(3001,{
         socket.join(roomId)
         socket.to(roomId).emit('user-connected', userId)
   
-    //   socket.on('disconnect', () => {
-    //     socket.to(roomId).broadcast.emit('user-disconnected', userId)
-    //   })
+      socket.on('disconnect', () => {
+        socket.to(roomId).emit('user-disconnected', userId)
+      })
     })
   })

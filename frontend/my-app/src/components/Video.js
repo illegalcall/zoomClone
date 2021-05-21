@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Video = () => {
+const Video = ({srcObject}) => {
+    console.log(srcObject,"srcobj Video")
     return (
         <div>
-            <video>
+            <video ref={srcObject} onLoadedMetadata={(e)=>{
+                e.play()
+            }}>
                 
             </video>
         </div>
